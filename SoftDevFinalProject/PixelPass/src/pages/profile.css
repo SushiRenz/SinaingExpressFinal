@@ -1,0 +1,146 @@
+.profile-container {
+  max-width: 700px;
+  padding: 24px;
+  background: rgba(30, 10, 50, 0.95);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  color: #f3e6ff;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.profile-card {
+  background: rgba(255,255,255,0.04);
+  border-radius: 14px;
+  padding: 32px 28px;
+  box-shadow: 0 2px 12px rgba(166, 108, 255, 0.10);
+}
+
+.profile-title {
+  font-size: 2rem;
+  color: #e0c3fc;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.profile-info-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.profile-label {
+  width: 120px;
+  color: #bfa6e0;
+  font-weight: 500;
+}
+
+.profile-value {
+  color: #fff;
+  font-weight: 600;
+}
+
+.profile-password-input {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #2d0c57;
+  color: #fff;
+  font-size: 1rem;
+  margin-right: 8px;
+}
+
+.profile-btn {
+  background: #6A0DAD;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 4px;
+  transition: background 0.3s;
+  font-size: 1rem;
+}
+
+.profile-btn:hover:not(:disabled) {
+  background: #a66cff;
+}
+
+.profile-pass-section {
+  margin-top: 18px;
+}
+
+.pass-card.big-pass-card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 18px;
+  box-shadow: 0 0 30px rgba(166, 108, 255, 0.10);
+  padding: 60px 40px;
+  min-height: 320px;
+  margin-top: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pass-card .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(120deg, rgba(106,13,173,0.7) 0%, rgba(166,108,255,0.5) 100%);
+  z-index: 0;
+  border-radius: 18px;
+}
+
+.pass-details {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+}
+
+.pass-status {
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 8px;
+}
+
+.pass-status.subscribed {
+  background: #2ecc40;
+  color: #fff;
+}
+
+.pass-status.notsub {
+  background: #a66cff;
+  color: #fff;
+}
+
+.subscribe-btn {
+  margin-top: 10px;
+  background: linear-gradient(135deg, #6a0dad 0%, #a66cff 100%);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .profile-container {
+    padding: 8px;
+    max-width: 98vw;
+  }
+  .profile-card {
+    padding: 18px 8px;
+  }
+  .pass-card.big-pass-card {
+    padding: 24px 8px;
+    min-height: 200px;
+  }
+  .pass-details h1 {
+    font-size: 1.5rem !important;
+  }
+}

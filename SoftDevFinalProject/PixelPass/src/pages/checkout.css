@@ -1,0 +1,145 @@
+.checkout-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: #1a1a1a;
+  color: #e0c3fc;
+  border-radius: 16px;
+  box-shadow: 0 8px 33px rgba(0,0,0,0.25);
+  padding: 32px 24px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.checkout-container h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.checkout-cart-items {
+  margin-bottom: 24px;
+}
+
+.checkout-cart-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  padding: 10px;
+}
+
+
+.checkout-item-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.centered-details {
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.checkout-item-details h3 {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+}
+
+.checkout-item-details p {
+  margin: 0;
+  color: #a66cff;
+  font-weight: 500;
+}
+
+.platform-section {
+  margin-bottom: 24px;
+}
+
+.platform-options {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.platform-btn {
+  background: #232323;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 12px 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: border 0.2s, background 0.2s;
+  width: 90px;
+  min-width: 90px;
+  min-height: 90px;
+  box-sizing: border-box;
+}
+
+.platform-btn.selected,
+.platform-btn:hover {
+  border: 2px solid #a66cff;
+  background: #2d1a3a;
+}
+
+.platform-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.platform-btn img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.platform-btn span {
+  color: #e0c3fc;
+  font-size: 0.95rem;
+  text-align: center;
+  width: 100%;
+}
+
+.checkout-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  margin-bottom: 18px;
+}
+
+.checkout-total {
+  color: #a66cff;
+  font-weight: 600;
+}
+
+.place-order-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #6a0dad 0%, #a66cff 100%);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.place-order-btn:disabled {
+  background: #444;
+  cursor: not-allowed;
+}
+
+.place-order-btn:hover:not(:disabled) {
+  background: linear-gradient(120deg, #a66cff 0%, #6a0dad 100%);
+  transform: translateY(-2px);
+}
+

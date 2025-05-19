@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@300;500&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #2d0c57, #6A0DAD, #9B59B6);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  backdrop-filter: blur(10px);
+  background: rgba(30, 10, 50, 0.92); /* More opaque and darker */
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  width: 350px;
+  text-align: center;
+}
+.login-card .logo {
+  font-family: 'Orbitron', sans-serif;
+  color: #e0c3fc;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  color: #e0d2ff;
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+.pixelpass-logo {
+  width: 250px;           /* Make it bigger */
+  height: auto;           /* Maintain aspect ratio */
+  margin-top: -180px;       /* Move it down */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.login-form input {
+  width: 93%;
+  padding: 12px;
+  margin: 10px 0;
+  background: rgba(30, 10, 50, 0.85); /* Darker background */
+  border: none;
+  border-radius: 8px;
+  color: #f3e6ff; /* Brighter text */
+  font-size: 0.95rem;
+  box-shadow: 0 2px 8px rgba(166, 108, 255, 0.10);
+  transition: box-shadow 0.3s, background 0.3s;
+}
+
+.login-form input::placeholder {
+  color: #bfa6e0; /* Slightly darker placeholder */
+}
+
+.login-card .logo,
+.tagline,
+.signup-text {
+  color: #f3e6ff; /* Brighter text for better contrast */
+}
+
+.login-form button {
+  width: 50%;
+  padding: 12px;
+  margin-top: 32px;
+  background-color: #6A0DAD;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #a66cff;
+}
+
+.signup-text {
+  margin-top: 20px;
+  color: #e0c3fc;
+  font-size: 0.9rem;
+}
+
+.signup-text a {
+  color: #ffffff;
+  text-decoration: underline;
+}

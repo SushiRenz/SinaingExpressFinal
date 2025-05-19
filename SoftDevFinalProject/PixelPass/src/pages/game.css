@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+.game-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.nav-btn {
+  background: linear-gradient(135deg, #6a0dad 0%, #a66cff 100%);
+  color: #fff;
+  font-size: 2.2rem;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 14px 18px;
+  margin: 0 18px;
+  box-shadow: 0 4px 24px 0 #a66cff44, 0 2px 12px rgba(106, 13, 173, 0.18);
+  transition: 
+    background 0.3s,
+    color 0.2s,
+    box-shadow 0.3s,
+    transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+   position: absolute;
+  top: 50%;
+  z-index: 10;
+  transform: translateY(-50%);
+}
+
+.nav-btn:hover, .nav-btn:focus {
+  background: linear-gradient(120deg, #a66cff 0%, #6a0dad 100%);
+  color: #fff;
+  box-shadow: 0 8px 32px 0 #a66cff88, 0 0 0 4px #a66cff44;
+  transform: scale(1.15);
+}
+
+.nav-btn svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+
+.game-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+  padding: 40px;
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;    /* Add this */
+  bottom: 0;   /* Add this */
+  width: auto; /* Let left/right control width */
+  height: auto;/* Let top/bottom control height */
+  background: rgba(18, 18, 18, 0.7);
+  z-index: 0;
+  border-radius: 20px;
+}
+
+.game-details {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+.game-details h1 {
+  font-size: 2.3rem;
+  font-weight: 600;
+  color: #e0c3fc;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+.game-icons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.icon-img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(106, 13, 173, 0.10);
+}
+.price-cart-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 20px;
+}
+
+.price {
+  font-size: 1.25rem;
+  color: #e0c3fc;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.add-to-cart.small {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #6A0DAD;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  transition: background 0.3s;
+  margin-left: 0;
+}
+
+.add-to-cart.small:hover {
+  background: #a66cff;
+}
+
+.cart-icon.small {
+  width: 20px;
+  height: 20px;
+  color: #e0c3fc;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.gallery img {
+  width: 160px;
+  height: auto;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #a66cff;
+}
+
+.description {
+  margin: 20px auto;
+  font-size: 1rem;
+  color: #e0d2ff;
+  max-width: 600px;
+  line-height: 1.6;
+  text-align: center;
+  word-break: break-word;
+}
+.tags {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.tags li {
+  background: #6A0DAD;
+  color: #e0c3fc;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.add-to-cart {
+  background: #6A0DAD;
+  color: #fff;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.add-to-cart:hover {
+  background: #a66cff;
+}
+
+
+.nav-btn.left {
+  left: 10px;
+}
+
+.nav-btn.right {
+  right: 10px;
+}
+
+.nav-btn:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 1000px;
+  height: 540px;
+}
+
+.game-card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 600px;
+  height: 520px;
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  z-index: 2;
+  transition: 
+    transform 0.35s cubic-bezier(.4,0,.2,1),
+    opacity 0.35s cubic-bezier(.4,0,.2,1),
+    box-shadow 0.35s;
+}
+
+.shadow-card {
+  width: 340px;
+  height: 400px;
+  z-index: 1;
+  filter: blur(2px) brightness(0.7);
+  opacity: 0.6;
+  pointer-events: none;
+  padding: 0;
+}
+
+.left-card {
+  transform: translateX(-220%) scale(0.8);
+}
+.right-card {
+  transform: translateX(120%) scale(0.8);
+}
+
+/* Animation classes */
+.slide-in-center-from-left {
+  animation: slideInCenterFromLeft 0.35s forwards;
+}
+@keyframes slideInCenterFromLeft {
+  from { transform: translateX(-220%) scale(0.8); opacity: 0.6; }
+  to   { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+.slide-in-center-from-right {
+  animation: slideInCenterFromRight 0.35s forwards;
+}
+@keyframes slideInCenterFromRight {
+  from { transform: translateX(120%) scale(0.8); opacity: 0.6; }
+  to   { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+.slide-in-left {
+  animation: slideInLeft 0.35s forwards;
+}
+@keyframes slideInLeft {
+  from { transform: translateX(-50%) scale(1); opacity: 1; }
+  to   { transform: translateX(-220%) scale(0.8); opacity: 0.6; }
+}
+.slide-in-right {
+  animation: slideInRight 0.35s forwards;
+}
+@keyframes slideInRight {
+  from { transform: translateX(-50%) scale(1); opacity: 1; }
+  to   { transform: translateX(120%) scale(0.8); opacity: 0.6; }
+}
+.slide-out-left {
+  animation: slideOutLeft 0.35s forwards;
+}
+@keyframes slideOutLeft {
+  from { transform: translateX(-220%) scale(0.8); opacity: 0.6; }
+  to   { opacity: 0; }
+}
+.slide-out-right {
+  animation: slideOutRight 0.35s forwards;
+}
+@keyframes slideOutRight {
+  from { transform: translateX(120%) scale(0.8); opacity: 0.6; }
+  to   { opacity: 0; }
+}
+
+/* Main card always on top */
+.main-card {
+  z-index: 2;
+  filter: none;
+  opacity: 1;
+  pointer-events: auto;
+}
