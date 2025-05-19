@@ -1,16 +1,16 @@
 /* Navbar.css */
 .navbar {
-  background: linear-gradient(135deg, #2d0c57cc, #6A0DADcc, #9B59B6cc);
+  background: linear-gradient(135deg, #aa4b10cc, #af4600cc, #972d2dcc);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-  color: white;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  color: #ffe4c4;
   padding: 15px 30px;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+  box-shadow: 0 8px 32px 0 rgba(179, 57, 57, 0.17);
 }
 
 .navbar nav {
@@ -37,7 +37,7 @@
 
 .navbar a {
   text-decoration: none;
-  color: #e0c3fc;
+  color: #ffddaa;
   font-size: 18px;
   font-family: 'Poppins', sans-serif;
   transition: 
@@ -51,10 +51,9 @@
 }
 
 .navbar a:hover {
-  color: #fff;
+  color: #fff5e1;
   /* Glowing highlight effect */
-  text-shadow: 0 2px 16px #a06cff, 0 0 4px #fff;
-  /* Optional: subtle underline highlight */
+  text-shadow: 0 2px 16px #ffbd59, 0 0 4px #fff;
   background: none;
 }
 
@@ -69,13 +68,13 @@
 }
 
 .cart-link:hover .cart-icon {
-  color: #fff;
-  filter: drop-shadow(0 2px 8px #a06cff) drop-shadow(0 0 4px #fff);
+  color: #fff5e1;
+  filter: drop-shadow(0 2px 8px #ffbd59) drop-shadow(0 0 4px #fff);
 }
 .cart-icon {
   width: 26px;
   height: 26px;
-  color: #e0c3fc;
+  color: #ffbd59;
   display: block;
 }
 .user-link {
@@ -89,13 +88,13 @@
 }
 
 .user-link:hover .user-icon {
-  color: #fff;
-  filter: drop-shadow(0 2px 8px #a06cff) drop-shadow(0 0 4px #fff);
+  color: #fff5e1;
+  filter: drop-shadow(0 2px 8px #ffbd59) drop-shadow(0 0 4px #fff);
 }
 
 .user-icon {
   width: 26px;
   height: 26px;
-  color: #e0c3fc;
+  color: #ffbd59;
   display: block;
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from './CartContext';
 import './Login.css';
-import pixelpassLogo from '/public/assets/pixelpass.png'; // Adjust if path differs
+import pixelpassLogo from '/public/assets/sel2.png'; // Update with actual image later
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const Login = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [capsLockOn, setCapsLockOn] = useState(false);
-  const [loginSuccess, setLoginSuccess] = useState(false); // <-- Add this line
+  const [loginSuccess, setLoginSuccess] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -34,11 +34,11 @@ const Login = () => {
       const data = await res.json();
 
       if (res.ok) {
-        localStorage.setItem('username', data.username); // 🔑 Save username
-        login({ username: data.username }); // Pass user object to context
-        setLoginSuccess(true); // <-- Show success message
+        localStorage.setItem('username', data.username);
+        login({ username: data.username });
+        setLoginSuccess(true);
         setTimeout(() => {
-          navigate('/dashboard'); // Redirect after short delay
+          navigate('/dashboard');
         }, 1200);
       } else {
         alert(data.message);
@@ -49,7 +49,6 @@ const Login = () => {
     }
   };
 
-  // Caps Lock detection handler
   const handleCapsLock = (e) => {
     setCapsLockOn(e.getModifierState && e.getModifierState('CapsLock'));
   };
@@ -57,9 +56,9 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="login-card">
-        <h1 className="logo">PixelPass</h1>
-        <img src={pixelpassLogo} alt="PixelPass Logo" className="pixelpass-logo" />
-        <p className="tagline">Log in to your digital realm</p>
+        <h1 className="logo">Sinaing Express</h1>
+        <img src={pixelpassLogo} alt="Uncle Roger Logo" className="pixelpass-logo" />
+        <p className="tagline">log in to your sinaing journey</p>
         {loginSuccess && (
           <div style={{
             color: '#4caf50',
@@ -89,7 +88,7 @@ const Login = () => {
               required
               style={{
                 width: '100%',
-                paddingRight: '2.5rem', // space for the icon
+                paddingRight: '2.5rem',
                 boxSizing: 'border-box'
               }}
               onKeyUp={handleCapsLock}
@@ -103,7 +102,7 @@ const Login = () => {
                 top: '50%',
                 transform: 'translateY(-50%)',
                 cursor: 'pointer',
-                color: '#bfa6e0',
+                color: '#ffbd59',
                 display: 'flex',
                 alignItems: 'center',
                 height: '100%',
@@ -115,16 +114,14 @@ const Login = () => {
               role="button"
             >
               {showPassword ? (
-                // Simple "eye-off" SVG
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#bfa6e0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffbd59" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-5 0-9.27-3.11-11-7 1.21-2.61 3.31-4.77 6-6.13"/>
                   <path d="M1 1l22 22"/>
                   <path d="M9.53 9.53A3.5 3.5 0 0 0 12 15.5c1.38 0 2.63-.83 3.16-2.03"/>
                   <path d="M14.47 14.47A3.5 3.5 0 0 0 12 8.5c-.63 0-1.22.18-1.72.49"/>
                 </svg>
               ) : (
-                // Simple "eye" SVG
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#bfa6e0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffbd59" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <ellipse cx="12" cy="12" rx="9" ry="7"/>
                   <circle cx="12" cy="12" r="3"/>
                 </svg>
@@ -139,14 +136,14 @@ const Login = () => {
                 top: '100%',
                 marginTop: '2px'
               }}>
-               Caps Lock is ON
+                Caps Lock is ON
               </div>
             )}
           </div>
           <button type="submit">Log In</button>
         </form>
         <p className="signup-text">
-          New to PixelPass? <Link to="/signup">Sign up</Link>
+          New to Sinaing Express? <Link to="/signup">Sign up</Link>
         </p>
       </div>
     </div>

@@ -29,8 +29,8 @@ function Navbar() {
       <nav>
         <ul>
           <li><Link to="/dashboard">Home</Link></li>
-          <li><Link to="/game">Games</Link></li>
-          <li><Link to="/about">About Us</Link></li>
+          <li><Link to="/game">Menu</Link></li>
+          <li><Link to="/about">Bigas</Link></li>
         </ul>
         <div style={{ display: "flex", alignItems: "center" }}>
           {/* 🛒 Clicking this toggles the cart */}

@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #2d0c57, #6A0DAD, #9B59B6);
+  background: linear-gradient(135deg, #ff8c42, #d35400, #b33939);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -13,65 +13,65 @@ body {
 
 .login-container {
   backdrop-filter: blur(10px);
-  background: rgba(30, 10, 50, 0.92); /* More opaque and darker */
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(50, 25, 0, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 40px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   width: 350px;
   text-align: center;
 }
+
 .login-card .logo {
   font-family: 'Orbitron', sans-serif;
-  color: #e0c3fc;
+  color: #ffbd59;
   font-size: 2.2rem;
   margin-bottom: 10px;
 }
 
 .tagline {
-  color: #e0d2ff;
+  color: #f5deb3;
   margin-bottom: 30px;
   font-size: 0.95rem;
 }
 
 .pixelpass-logo {
-  width: 250px;           /* Make it bigger */
-  height: auto;           /* Maintain aspect ratio */
-  margin-top: -180px;       /* Move it down */
+  width: 220px;
+  height: auto;
+  margin-top: -140px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-
 .login-form input {
   width: 93%;
   padding: 12px;
   margin: 10px 0;
-  background: rgba(30, 10, 50, 0.85); /* Darker background */
+  background: rgba(70, 40, 0, 0.8);
   border: none;
   border-radius: 8px;
-  color: #f3e6ff; /* Brighter text */
+  color: #fff5e1;
   font-size: 0.95rem;
-  box-shadow: 0 2px 8px rgba(166, 108, 255, 0.10);
+  box-shadow: 0 2px 8px rgba(255, 140, 0, 0.15);
   transition: box-shadow 0.3s, background 0.3s;
 }
 
 .login-form input::placeholder {
-  color: #bfa6e0; /* Slightly darker placeholder */
+  color: #ffddaa;
 }
 
 .login-card .logo,
 .tagline,
 .signup-text {
-  color: #f3e6ff; /* Brighter text for better contrast */
+  color: #ffe4c4;
 }
 
 .login-form button {
   width: 50%;
   padding: 12px;
   margin-top: 32px;
-  background-color: #6A0DAD;
+  background-color: #ff7300;
   color: white;
   border: none;
   border-radius: 8px;
@@ -81,12 +81,12 @@ body {
 }
 
 .login-form button:hover {
-  background-color: #a66cff;
+  background-color: #ff944d;
 }
 
 .signup-text {
   margin-top: 20px;
-  color: #e0c3fc;
+  color: #ffddaa;
   font-size: 0.9rem;
 }
 

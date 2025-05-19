@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './SignUp.css';
+import './signup.css';
 
 function SignUp() {
   const navigate = useNavigate();
@@ -93,7 +93,8 @@ function SignUp() {
 
   return (
     <div className="signup-container">
-      <h2>Join PixelPass</h2>
+
+      <p className="signup-tagline">Join your kanin journey!</p>
       <form className="signup-form" onSubmit={handleSubmit}>
         <input
           name="username"
@@ -103,7 +104,7 @@ function SignUp() {
           onChange={handleChange}
           required
         />
-        {usernameError && <div style={{ color: 'red', fontSize: '0.9em' }}>{usernameError}</div>}
+        {usernameError && <div className="signup-error">{usernameError}</div>}
         <input
           name="email"
           type="email"
@@ -135,7 +136,7 @@ function SignUp() {
               top: '50%',
               transform: 'translateY(-50%)',
               cursor: 'pointer',
-              color: '#bfa6e0',
+              color: '#ffbd59',
               display: 'flex',
               alignItems: 'center',
               height: '100%',
@@ -148,7 +149,7 @@ function SignUp() {
           >
             {showPassword ? (
               // Eye-off SVG
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#bfa6e0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffbd59" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-5 0-9.27-3.11-11-7 1.21-2.61 3.31-4.77 6-6.13"/>
                 <path d="M1 1l22 22"/>
                 <path d="M9.53 9.53A3.5 3.5 0 0 0 12 15.5c1.38 0 2.63-.83 3.16-2.03"/>
@@ -156,7 +157,7 @@ function SignUp() {
               </svg>
             ) : (
               // Eye SVG
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#bfa6e0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffbd59" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <ellipse cx="12" cy="12" rx="9" ry="7"/>
                 <circle cx="12" cy="12" r="3"/>
               </svg>
@@ -164,7 +165,17 @@ function SignUp() {
           </span>
         </div>
         {formData.password && (
-          <div style={{ color: passwordStrength === 'Strong' ? 'green' : passwordStrength === 'Medium' ? 'orange' : 'red', fontSize: '0.9em' }}>
+          <div
+            className="signup-strength"
+            style={{
+              color:
+                passwordStrength === 'Strong'
+                  ? 'green'
+                  : passwordStrength === 'Medium'
+                  ? 'orange'
+                  : 'red'
+            }}
+          >
             Password strength: {passwordStrength}
           </div>
         )}
@@ -191,7 +202,7 @@ function SignUp() {
               top: '50%',
               transform: 'translateY(-50%)',
               cursor: 'pointer',
-              color: '#bfa6e0',
+              color: '#ffbd59',
               display: 'flex',
               alignItems: 'center',
               height: '100%',
@@ -204,7 +215,7 @@ function SignUp() {
           >
             {showConfirmPassword ? (
               // Eye-off SVG
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#bfa6e0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffbd59" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-5 0-9.27-3.11-11-7 1.21-2.61 3.31-4.77 6-6.13"/>
                 <path d="M1 1l22 22"/>
                 <path d="M9.53 9.53A3.5 3.5 0 0 0 12 15.5c1.38 0 2.63-.83 3.16-2.03"/>
@@ -212,7 +223,7 @@ function SignUp() {
               </svg>
             ) : (
               // Eye SVG
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#bfa6e0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffbd59" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <ellipse cx="12" cy="12" rx="9" ry="7"/>
                 <circle cx="12" cy="12" r="3"/>
               </svg>
