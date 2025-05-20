@@ -3,22 +3,21 @@ import Navbar from "./navbar";
 import './dashboard.css';
 import { useCart } from './CartContext';
 
-
 const featuredMeals = [
   {
-    name: "Sinangag",
-    desc: "Classic rice dish that elevates human comprehension.",
-    img: "https://www.maggi.ph/sites/default/files/styles/home_stage_1500_700/public/srh_recipes/bfdc4aabaa491807618e7303c20723c6.jpg?h=476030cb&itok=32TzQ7Pc"
+    name: "Premium Jasmine Rice",
+    desc: "Soft, aromatic, perfect for everyday meals.",
+    img: "https://www.hungrylankan.com/wp-content/uploads/2024/10/Instant-pot-jasmine-rice-768x1024.jpg.webp"
   },
   {
-    name: "Chicken Inasal Bowl",
-    desc: "Grilled chicken inasal with java rice and atchara.",
-    img: "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80"
+    name: "Kanto-Style Garlic Fried Rice Pack",
+    desc: "Vacuum-sealed and microwaveable, made for busy Filipino gamers/students.",
+    img: "https://i0.wp.com/iankewks.com/wp-content/uploads/2023/06/IMG_1611.jpg?resize=800%2C1055&ssl=1"
   },
   {
-    name: "Pork Sisig Rice",
-    desc: "Sizzling pork sisig on a bed of steamed rice.",
-    img: "https://images.unsplash.com/photo-1523987355523-c7b5b0723cdd?auto=format&fit=crop&w=400&q=80"
+    name: "Toyo-Mansi Rice Bombs",
+    desc: "Sticky rice balls infused with soy sauce and calamansi. Iconic, portable.",
+    img: "https://nomadette.com/wp-content/uploads/2023/03/Kimchi-Fried-Rice-Balls-Jumeok-Bap.jpg"
   }
 ];
 
@@ -40,7 +39,7 @@ const Dashboard = () => {
           <a href="/game" className="btn hero-btn">Browse Rice Meals</a>
         </div>
         <div className="hero-image">
-          <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=600&q=80" alt="Rice Bowl" />
+          <img src="https://www.maggi.ph/sites/default/files/styles/home_stage_1500_700/public/srh_recipes/bfdc4aabaa491807618e7303c20723c6.jpg?h=476030cb&itok=32TzQ7Pc" alt="Rice Bowl" />
         </div>
       </div>
 

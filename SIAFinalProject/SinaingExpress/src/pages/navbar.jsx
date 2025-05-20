@@ -29,7 +29,7 @@ function Navbar() {
       <nav>
         <ul>
           <li><Link to="/dashboard">Home</Link></li>
-          <li><Link to="/game">Menu</Link></li>
+          <li><Link to="/rice">Menu</Link></li>
           <li><Link to="/about">Bigas</Link></li>
         </ul>
         <div style={{ display: "flex", alignItems: "center" }}>
@@ -46,13 +46,6 @@ function Navbar() {
               <path d="M5 6h2l1 9h10l1-7H7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
-
-          <Link to="/profile" className="user-link" aria-label="User Profile" style={{ marginLeft: "16px" }}>
-            <svg className="user-icon" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="2" fill="none"/>
-              <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" strokeWidth="2" fill="none"/>
-            </svg>
-          </Link>
 
           <li>
             <a href="/" onClick={handleLogout}>Logout</a>
