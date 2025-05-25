@@ -3,34 +3,22 @@ import { useCart } from "./CartContext";
 import { useNavigate } from "react-router-dom";
 import "./cart.css";
 
-// Helper function to extract numeric value from price string (₱60.00 or $1.09)
 function parsePrice(price) {
-  // Remove any non-numeric except dot
   const num = parseFloat(price.replace(/[^\d.]/g, ""));
   return isNaN(num) ? 0 : num;
 }
 
 const Cart = () => {
-  const { cartItems, isCartOpen, removeFromCart, toggleCart } = useCart();
+  const {
+    cartItems,
+    isCartOpen,
+    removeFromCart,
+    toggleCart,
+    increaseQuantity,
+    decreaseQuantity,
+    calculateTotal
+  } = useCart();
   const navigate = useNavigate();
-
-  // Calculate total by summing up all item prices (handles ₱ and $)
-  const calculateTotal = () => {
-    let total = 0;
-    cartItems.forEach((item) => {
-      total += parsePrice(item.price);
-    });
-    // If all items are in ₱, display ₱; if all in $, display $; if mixed, default to ₱
-    const hasPeso = cartItems.some((item) => item.price.includes("₱"));
-    const hasDollar = cartItems.some((item) => item.price.includes("$"));
-    if (hasPeso && !hasDollar) {
-      return `₱${total.toFixed(2)}`;
-    } else if (hasDollar && !hasPeso) {
-      return `$${total.toFixed(2)}`;
-    } else {
-      return `₱${total.toFixed(2)}`;
-    }
-  };
 
   return (
     <>
@@ -119,6 +107,19 @@ const Cart = () => {
                     fontWeight: 600,
                     fontFamily: "'Merriweather', serif"
                   }}>{item.price}</p>
+<div className="quantity-control">
+  <button
+    className="qty-btn"
+    onClick={() => decreaseQuantity(index)}
+    aria-label="Decrease quantity"
+  >-</button>
+  <span className="qty-value">{item.quantity || 1}</span>
+  <button
+    className="qty-btn"
+    onClick={() => increaseQuantity(index)}
+    aria-label="Increase quantity"
+  >+</button>
+</div>
                 </div>
                 <button
                   className="remove-item"

@@ -4,7 +4,7 @@ import Login from "./pages/login";
 import SignUp from "./pages/signup";
 import Dashboard from './pages/dashboard';
 import Rice from './pages/rice'; 
-import About from './pages/about';
+import Bigas from './pages/bigas';
 import Navbar from './pages/navbar';
 import Cart from './pages/cart';
 import Checkout from './pages/checkout';
@@ -23,7 +23,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/rice" element={<Rice />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/bigas" element={<Bigas />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </Router>

@@ -54,98 +54,113 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-card">
-        <h1 className="logo">Sinaing Express</h1>
-        <img src={pixelpassLogo} alt="Uncle Roger Logo" className="pixelpass-logo" />
-        <p className="tagline">log in to your sinaing journey</p>
-        {loginSuccess && (
-          <div style={{
-            color: '#4caf50',
-            marginBottom: '10px',
-            fontWeight: 'bold',
-            textAlign: 'center'
-          }}>
-            Login successful! Redirecting...
-          </div>
-        )}
-        <form className="login-form" onSubmit={handleLogin}>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-          <div style={{ position: 'relative', width: '100%' }}>
-            <input
-              type={showPassword ? 'text' : 'password'}
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-              style={{
-                width: '100%',
-                paddingRight: '2.5rem',
-                boxSizing: 'border-box'
-              }}
-              onKeyUp={handleCapsLock}
-              onKeyDown={handleCapsLock}
-            />
-            <span
-              onClick={() => setShowPassword((prev) => !prev)}
-              style={{
-                position: 'absolute',
-                right: '18px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                cursor: 'pointer',
-                color: '#ffbd59',
-                display: 'flex',
-                alignItems: 'center',
-                height: '100%',
-                userSelect: 'none',
-                zIndex: 2
-              }}
-              aria-label={showPassword ? 'Hide password' : 'Show password'}
-              tabIndex={0}
-              role="button"
-            >
-              {showPassword ? (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffbd59" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-5 0-9.27-3.11-11-7 1.21-2.61 3.31-4.77 6-6.13"/>
-                  <path d="M1 1l22 22"/>
-                  <path d="M9.53 9.53A3.5 3.5 0 0 0 12 15.5c1.38 0 2.63-.83 3.16-2.03"/>
-                  <path d="M14.47 14.47A3.5 3.5 0 0 0 12 8.5c-.63 0-1.22.18-1.72.49"/>
-                </svg>
-              ) : (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffbd59" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <ellipse cx="12" cy="12" rx="9" ry="7"/>
-                  <circle cx="12" cy="12" r="3"/>
-                </svg>
-              )}
-            </span>
-            {capsLockOn && (
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div className="login-container">
+          <div className="login-card">
+            <h1 className="logo">Sinaing Express</h1>
+            <img src={pixelpassLogo} alt="Uncle Roger Logo" className="pixelpass-logo" />
+            <p className="tagline">log in to your sinaing journey</p>
+            {loginSuccess && (
               <div style={{
-                color: '#e57373',
-                fontSize: '0.85rem',
-                position: 'absolute',
-                left: 0,
-                top: '100%',
-                marginTop: '2px'
+                color: '#4caf50',
+                marginBottom: '10px',
+                fontWeight: 'bold',
+                textAlign: 'center'
               }}>
-                Caps Lock is ON
+                Login successful! Redirecting...
               </div>
             )}
+            <form className="login-form" onSubmit={handleLogin}>
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                value={formData.username}
+                onChange={handleChange}
+                required
+              />
+              <div style={{ position: 'relative', width: '100%' }}>
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  name="password"
+                  placeholder="Password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                  style={{
+                    width: '100%',
+                    paddingRight: '2.5rem',
+                    boxSizing: 'border-box'
+                  }}
+                  onKeyUp={handleCapsLock}
+                  onKeyDown={handleCapsLock}
+                />
+                <span
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  style={{
+                    position: 'absolute',
+                    right: '18px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    cursor: 'pointer',
+                    color: '#ffbd59',
+                    display: 'flex',
+                    alignItems: 'center',
+                    height: '100%',
+                    userSelect: 'none',
+                    zIndex: 2
+                  }}
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  tabIndex={0}
+                  role="button"
+                >
+                  {showPassword ? (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffbd59" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-5 0-9.27-3.11-11-7 1.21-2.61 3.31-4.77 6-6.13"/>
+                      <path d="M1 1l22 22"/>
+                      <path d="M9.53 9.53A3.5 3.5 0 0 0 12 15.5c1.38 0 2.63-.83 3.16-2.03"/>
+                      <path d="M14.47 14.47A3.5 3.5 0 0 0 12 8.5c-.63 0-1.22.18-1.72.49"/>
+                    </svg>
+                  ) : (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffbd59" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <ellipse cx="12" cy="12" rx="9" ry="7"/>
+                      <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                  )}
+                </span>
+                {capsLockOn && (
+                  <div style={{
+                    color: '#e57373',
+                    fontSize: '0.85rem',
+                    position: 'absolute',
+                    left: 0,
+                    top: '100%',
+                    marginTop: '2px'
+                  }}>
+                    Caps Lock is ON
+                  </div>
+                )}
+              </div>
+              <button type="submit">Log In</button>
+            </form>
+            <p className="signup-text">
+              New to Sinaing Express? <Link to="/signup">Sign up</Link>
+            </p>
           </div>
-          <button type="submit">Log In</button>
-        </form>
-        <p className="signup-text">
-          New to Sinaing Express? <Link to="/signup">Sign up</Link>
-        </p>
+        </div>
       </div>
+      <footer className="login-footer">
+        <div className="footer-content">
+          <span role="img" aria-label="rice">🍚</span>
+          <span style={{ margin: '0 8px', fontWeight: 500 }}>Sinaing Express</span>
+          <span style={{ color: '#ffbd59', margin: '0 8px' }}>|</span>
+          <span style={{ fontSize: '0.95rem' }}>Delivering warmth, one pot at a time.</span>
+          <span style={{ float: 'right', fontSize: '0.9rem', color: '#ffddaa', marginLeft: 'auto' }}>
+            &copy; {new Date().getFullYear()} Sinaing Express
+          </span>
+        </div>
+      </footer>
     </div>
   );
 };

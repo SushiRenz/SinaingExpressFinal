@@ -30,7 +30,10 @@ function Navbar() {
         <ul>
           <li><Link to="/dashboard">Home</Link></li>
           <li><Link to="/rice">Menu</Link></li>
-          <li><Link to="/about">Bigas</Link></li>
+          <li><Link to="/bigas">Bigas</Link></li>
+          <li>
+            <a href="/" onClick={handleLogout}>Logout</a>
+          </li>
         </ul>
         <div style={{ display: "flex", alignItems: "center" }}>
           {/* 🛒 Clicking this toggles the cart */}
@@ -46,10 +49,6 @@ function Navbar() {
               <path d="M5 6h2l1 9h10l1-7H7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
-
-          <li>
-            <a href="/" onClick={handleLogout}>Logout</a>
-          </li>
         </div>
       </nav>
     </div>

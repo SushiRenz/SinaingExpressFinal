@@ -20,6 +20,7 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   width: 350px;
   text-align: center;
+  margin: -500px auto 0 auto;
 }
 
 .signup-title {
@@ -90,4 +91,28 @@ body {
 .signup-strength {
   font-size: 0.9em;
   margin-bottom: 4px;
+}
+.login-footer {
+  width: 100vw;
+  background: linear-gradient(90deg, #b33939 0%, #ff8c42 100%);
+  color: #ffe4c4;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.15);
+  font-family: 'Poppins', 'Merriweather', serif;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 32px 10px 32px;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  min-height: 40px;
 }

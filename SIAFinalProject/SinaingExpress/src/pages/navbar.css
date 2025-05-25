@@ -72,8 +72,8 @@
   filter: drop-shadow(0 2px 8px #ffbd59) drop-shadow(0 0 4px #fff);
 }
 .cart-icon {
-  width: 26px;
-  height: 26px;
+  width: 34px;   /* Increased from 26px */
+  height: 34px;  /* Increased from 26px */
   color: #ffbd59;
   display: block;
 }
