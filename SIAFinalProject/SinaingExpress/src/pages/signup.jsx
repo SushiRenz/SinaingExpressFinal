@@ -14,6 +14,7 @@ function SignUp() {
   const [passwordStrength, setPasswordStrength] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Username validation: only letters, numbers, underscores
   const validateUsername = (username) => {
@@ -67,8 +68,11 @@ function SignUp() {
       return;
     }
 
+    setIsLoading(true);
+
     try {
-      const res = await fetch('http://localhost:5000/api/signup', {
+      // Updated API endpoint to match backend routes
+      const res = await fetch('http://localhost:5000/api/users/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -87,7 +91,9 @@ function SignUp() {
       }
     } catch (err) {
       console.error(err);
-      alert('Server error');
+      alert('Server error. Please check if the server is running.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -104,6 +110,7 @@ function SignUp() {
               value={formData.username}
               onChange={handleChange}
               required
+              disabled={isLoading}
             />
             {usernameError && <div className="signup-error">{usernameError}</div>}
             <input
@@ -113,6 +120,7 @@ function SignUp() {
               value={formData.email}
               onChange={handleChange}
               required
+              disabled={isLoading}
             />
             {/* Password field with show/hide */}
             <div style={{ position: 'relative', width: '100%' }}>
@@ -123,6 +131,7 @@ function SignUp() {
                 value={formData.password}
                 onChange={handleChange}
                 required
+                disabled={isLoading}
                 style={{
                   width: '100%',
                   paddingRight: '2.5rem',
@@ -189,6 +198,7 @@ function SignUp() {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 required
+                disabled={isLoading}
                 style={{
                   width: '100%',
                   paddingRight: '2.5rem',
@@ -231,7 +241,9 @@ function SignUp() {
                 )}
               </span>
             </div>
-            <button type="submit">Sign Up</button>
+            <button type="submit" disabled={isLoading}>
+              {isLoading ? 'Creating Account...' : 'Sign Up'}
+            </button>
           </form>
           <p className="login-link">
             Already have an account? <Link to="/login">Login here</Link>

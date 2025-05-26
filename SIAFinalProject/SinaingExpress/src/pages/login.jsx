@@ -14,6 +14,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [capsLockOn, setCapsLockOn] = useState(false);
   const [loginSuccess, setLoginSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,9 +22,11 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
-      const res = await fetch('http://localhost:5000/api/login', {
+      // Updated API endpoint to match backend routes
+      const res = await fetch('http://localhost:5000/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -34,8 +37,13 @@ const Login = () => {
       const data = await res.json();
 
       if (res.ok) {
+        // Store token and username
+        localStorage.setItem('token', data.token);
         localStorage.setItem('username', data.username);
+        
+        // Update cart context
         login({ username: data.username });
+        
         setLoginSuccess(true);
         setTimeout(() => {
           navigate('/dashboard');
@@ -45,7 +53,9 @@ const Login = () => {
       }
     } catch (error) {
       console.error('Login error:', error);
-      alert('Login failed');
+      alert('Login failed. Please check if the server is running.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -79,6 +89,7 @@ const Login = () => {
                 value={formData.username}
                 onChange={handleChange}
                 required
+                disabled={isLoading}
               />
               <div style={{ position: 'relative', width: '100%' }}>
                 <input
@@ -88,6 +99,7 @@ const Login = () => {
                   value={formData.password}
                   onChange={handleChange}
                   required
+                  disabled={isLoading}
                   style={{
                     width: '100%',
                     paddingRight: '2.5rem',
@@ -142,7 +154,9 @@ const Login = () => {
                   </div>
                 )}
               </div>
-              <button type="submit">Log In</button>
+              <button type="submit" disabled={isLoading}>
+                {isLoading ? 'Logging in...' : 'Log In'}
+              </button>
             </form>
             <p className="signup-text">
               New to Sinaing Express? <Link to="/signup">Sign up</Link>
