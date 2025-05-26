@@ -40,13 +40,17 @@ const Login = () => {
         // Store token and username
         localStorage.setItem('token', data.token);
         localStorage.setItem('username', data.username);
-        
+
         // Update cart context
         login({ username: data.username });
-        
+
         setLoginSuccess(true);
         setTimeout(() => {
-          navigate('/dashboard');
+          if (data.username === 'admin') {
+            navigate('/admin');
+          } else {
+            navigate('/dashboard');
+          }
         }, 1200);
       } else {
         alert(data.message);
