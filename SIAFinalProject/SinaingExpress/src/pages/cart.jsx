@@ -100,13 +100,13 @@ const Cart = () => {
                     fontFamily: "'Merriweather', serif",
                     fontWeight: 700,
                     letterSpacing: "0.5px"
-                  }}>{item.title}</h3>
+                  }}>{item.name}</h3> {/* Use item.name instead of item.title */}
                   <p className="item-price" style={{
                     margin: 0,
                     color: "#924302",
                     fontWeight: 600,
                     fontFamily: "'Merriweather', serif"
-                  }}>{item.price}</p>
+                  }}>₱{item.price}</p> {/* Format price if needed */}
 <div className="quantity-control">
   <button
     className="qty-btn"

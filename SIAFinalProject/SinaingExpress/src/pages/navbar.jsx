@@ -30,9 +30,18 @@ function Navbar() {
         <ul>
           <li><Link to="/dashboard">Home</Link></li>
           <li><Link to="/rice">Menu</Link></li>
-          <li><Link to="/bigas">Bigas</Link></li>
           <li>
-            <a href="/" onClick={handleLogout}>Logout</a>
+            <button
+              onClick={handleLogout}
+              className="logout-link"
+              aria-label="Logout"
+              style={{ background: "none", border: "none", cursor: "pointer", padding: 0, marginLeft: "10px" }}
+            >
+              <svg className="logout-icon" width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M16 17l5-5m0 0l-5-5m5 5H9" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M13 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
           </li>
         </ul>
         <div style={{ display: "flex", alignItems: "center" }}>

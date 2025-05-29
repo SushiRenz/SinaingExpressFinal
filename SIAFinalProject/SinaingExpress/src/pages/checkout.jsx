@@ -4,14 +4,38 @@ import "./checkout.css";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
-  const { cartItems, calculateTotal, clearCart } = useCart();
+  const { cartItems, calculateTotal, clearCart, currentUser } = useCart(); // <-- add currentUser
   const [orderPlaced, setOrderPlaced] = useState(false);
   const navigate = useNavigate();
 
-  const handlePlaceOrder = () => {
-    setOrderPlaced(true);
-    clearCart(); // Clear the cart after placing the order
-    // Here you would send the order to your backend or process it
+  const handlePlaceOrder = async () => {
+    if (!currentUser || !currentUser.username) {
+      alert("Please log in to place an order.");
+      return;
+    }
+    const orderPayload = {
+      userId: currentUser.username, // <-- use the logged-in user's username
+      items: cartItems.map((item) => ({
+        productId: item.productId,
+        quantity: item.quantity || 1,
+      })),
+      total: Number(
+        String(calculateTotal()).replace(/[^\d.]/g, "")
+      ),
+    };
+
+    const response = await fetch("http://localhost:5003/api/orders/place", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(orderPayload),
+    });
+    const data = await response.json();
+    if (response.ok) {
+      setOrderPlaced(true);
+      clearCart();
+    } else {
+      alert("Order failed: " + (data.message || data.error));
+    }
   };
 
   if (orderPlaced) {
@@ -19,9 +43,16 @@ const Checkout = () => {
       <div className="checkout-container">
         <h2>Thank you for your order!</h2>
         <p>
-          Your order will be sent by the rider on your doorstep soon. Thank you for patience!
+          Your order has been placed and sent to our kitchen queue!<br />
+          Our team will prepare your order and a rider will deliver it to your doorstep soon.<br />
+          Thank you for your patience!
         </p>
-        <button className="checkout-btn" onClick={() => navigate("/dashboard")}>Back to Store</button>
+        <button
+          className="checkout-btn"
+          onClick={() => navigate("/dashboard")}
+        >
+          Back to Store
+        </button>
       </div>
     );
   }
@@ -30,7 +61,12 @@ const Checkout = () => {
     return (
       <div className="checkout-container">
         <h2>Your cart is empty.</h2>
-        <button className="checkout-btn" onClick={() => navigate("/dashboard")}>Back to Store</button>
+        <button
+          className="checkout-btn"
+          onClick={() => navigate("/dashboard")}
+        >
+          Back to Store
+        </button>
       </div>
     );
   }

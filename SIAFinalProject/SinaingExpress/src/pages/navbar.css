@@ -72,8 +72,8 @@
   filter: drop-shadow(0 2px 8px #ffbd59) drop-shadow(0 0 4px #fff);
 }
 .cart-icon {
-  width: 34px;   /* Increased from 26px */
-  height: 34px;  /* Increased from 26px */
+  width: 40px;   /* Increased from 26px */
+  height: 40x;  /* Increased from 26px */
   color: #ffbd59;
   display: block;
 }
@@ -95,6 +95,24 @@
 .user-icon {
   width: 26px;
   height: 26px;
+  color: #ffbd59;
+  display: block;
+}
+
+.logout-link {
+  margin-left: 16px;
+  display: flex;
+  transition: box-shadow 0.2s;
+}
+
+.logout-link:hover .logout-icon {
+  color: #fff5e1;
+  filter: drop-shadow(0 2px 8px #ffbd59) drop-shadow(0 0 4px #fff);
+}
+
+.logout-icon {
+  width: 30px;
+  height: 34px;
   color: #ffbd59;
   display: block;
 }

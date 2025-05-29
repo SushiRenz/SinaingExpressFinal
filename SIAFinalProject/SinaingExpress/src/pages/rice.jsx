@@ -1,63 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./rice.css";
 import { useCart } from "./CartContext";
 
-const menuItems = [
-  {
-    name: "Premium Jasmine Rice",
-    price: "₱60.00",
-    image: "https://www.hungrylankan.com/wp-content/uploads/2024/10/Instant-pot-jasmine-rice-768x1024.jpg.webp",
-    description: "Soft, aromatic, and perfect for everyday meals. Served hot and fluffy.",
-    tags: ["Rice", "Classic", "Steamed"]
-  },
-  {
-    name: "Kanto-Style Garlic Fried Rice",
-    price: "₱80.00",
-    image: "https://i0.wp.com/iankewks.com/wp-content/uploads/2023/06/IMG_1611.jpg?resize=800%2C1055&ssl=1",
-    description: "Vacuum-sealed, microwaveable, and loaded with garlic. Made for busy Filipino gamers and students.",
-    tags: ["Garlic", "Fried Rice", "Savory"]
-  },
-  {
-    name: "Toyo-Mansi Rice Bombs",
-    price: "₱75.00",
-    image: "https://nomadette.com/wp-content/uploads/2023/03/Kimchi-Fried-Rice-Balls-Jumeok-Bap.jpg",
-    description: "Sticky rice balls infused with soy sauce and calamansi. Iconic and portable.",
-    tags: ["Rice Balls", "Toyo-Mansi", "Snack"]
-  },
-  {
-    name: "Nakset",
-    price: "₱20.00",
-    image: "https://i0.wp.com/twobittart.com/wp-content/uploads/2018/04/burnt-rice.jpg?resize=500%2C501&ssl=1",
-    description: "Burnt to a crisp, exsquisite taste, and loaded with burnt taste. Good for your health.",
-    tags: ["Authentic", "Rare", "Charred"]
-  },
-  {
-    name: "Rice Crackers",
-    price: "₱10.00",
-    image: "https://www.maangchi.com/wp-content/uploads/2010/10/nurungji_disk.jpg",
-    description: "Vacuum-sealed, microwaveable, and loaded with garlic. Made for busy Filipino gamers and students.",
-    tags: ["Crunchy", "Literally Fried Rice", "Snack"]
-  },
-  {
-    name: "Buro",
-    price: "₱15.00",
-    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhF3rDnCb0T-yB3lt2siG6cH_GIcjQCzyaeLKmqjGh53W3d5G4QHS7wizQLloU0J-X3x9VwdY7W18iZMUgC6gr480wxpqZcMSzjgE8KXVZpM8a3LMK4ct34bFtlAhnjfvg2vhlmlTPW3O4/s1600/DSC_0011.JPG",
-    description: "Vacuum-sealed, microwaveable, and loaded with garlic. Made for busy Filipino gamers and students.",
-    tags: ["Icky", "Pungent", "Savory"]
-  },
-  {
-    name: "Japanese Premium butil ng Kanin",
-    price: "₱200.00",
-    image: "https://www.treetopzencenter.org/wp-content/uploads/2024/05/gi-rice-chopsticks.jpg",
-    description: "Vacuum-sealed, microwaveable, and loaded with garlic. Made for busy Filipino gamers and students.",
-    tags: ["Ultra Rare", "Fuji Grown", "A5 of Rice"]
-  }
-];
+const API_URL = "http://localhost:5001/api/products"; // Use your backend
 
 const MenuCarousel = () => {
+  const [menuItems, setMenuItems] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(""); // "left" or "right" for animation
   const { addToCart, openCartSidebar } = useCart();
+
+  // Fetch products from backend
+  useEffect(() => {
+    axios.get(API_URL)
+      .then(res => {
+        // Map backend fields to carousel fields
+        const mapped = res.data.map(prod => ({
+          _id: prod._id, // <-- Make sure this is included!
+          name: prod.name,
+          price: `₱${prod.price}.00`,
+          image: prod.imageUrl,
+          description: prod.description,
+          tags: prod.category ? [prod.category] : []
+        }));
+        setMenuItems(mapped);
+      })
+      .catch(err => {
+        console.error("Error loading menu:", err);
+        setMenuItems([]); // fallback to empty
+      });
+  }, []);
+
+  // Prevent errors if menuItems is empty
+  if (menuItems.length === 0) {
+    return (
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <h2 style={{ color: "#fff" }}>No menu items yet.</h2>
+      </div>
+    );
+  }
 
   const prevIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
   const nextIndex = (currentIndex + 1) % menuItems.length;
@@ -83,7 +65,8 @@ const MenuCarousel = () => {
     const cartItem = {
       title: item.name,
       price: item.price,
-      banner: item.image
+      banner: item.image,
+      productId: item._id // This must be a valid ObjectId string!
     };
     addToCart(cartItem);
     if (typeof openCartSidebar === "function") {
