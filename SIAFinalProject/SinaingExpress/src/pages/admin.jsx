@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Add this import
 import "./admin.css";
 
 const API_URL = "http://localhost:5001/api/products"; // <-- Add here
@@ -19,6 +20,7 @@ const Admin = () => {
   const [products, setProducts] = useState([]);
   const [form, setForm] = useState(initialForm);
   const [editIndex, setEditIndex] = useState(null);
+  const navigate = useNavigate(); // Add this line
 
   useEffect(() => {
     axios.get(API_URL)
@@ -137,8 +139,17 @@ const Admin = () => {
     }
   };
 
+  // Add this logout handler
+  const handleLogout = () => {
+    localStorage.removeItem("user"); // or whatever key you use
+    navigate("/login");
+  };
+
   return (
     <div className="admin-container">
+      <button className="logout-btn" onClick={handleLogout} style={{ float: "right", margin: "10px" }}>
+        Logout
+      </button>
       <h2 className="admin-title">Admin Product Management</h2>
       <form className="admin-form" onSubmit={handleSubmit}>
         <div className="admin-form-fields">

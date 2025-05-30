@@ -83,7 +83,13 @@ const Checkout = () => {
             />
             <div className="checkout-item-details centered-details">
               <h3>{item.title}</h3>
-              <p>{item.price}</p>
+              <p>
+                ₱{(parseFloat(item.price) * (item.quantity || 1)).toFixed(2)}
+                {" "}
+                <span style={{ color: "#888", fontSize: "0.95em" }}>
+                  ({item.quantity || 1} x ₱{parseFloat(item.price).toFixed(2)})
+                </span>
+              </p>
             </div>
           </div>
         ))}
